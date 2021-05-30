@@ -1,8 +1,8 @@
-#!/usr/bin/env python
-# coding: utf-8
+# #!/usr/bin/env python
+# # coding: utf-8
 
-# Import Splinter and BeautifulSoup
-from splinter import Browser
+# # Import Splinter and BeautifulSoup
+# from splinter import Browser
 from bs4 import BeautifulSoup as soup
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
@@ -25,14 +25,14 @@ def mars_news(browser):
 
      # Add try/except for error handling
     try:
-    slide_elem = news_soup.select_one('div.list_text')
-    slide_elem.find('div', class_='content_title')
+        slide_elem = news_soup.select_one('div.list_text')
+        slide_elem.find('div', class_='content_title')
 
-    # Use the parent element to find the first `a` tag and save it as `news_title`
-    news_title = slide_elem.find('div', class_='content_title').get_text()
-  
-    # Use the parent element to find the paragraph text
-    news_p = slide_elem.find('div', class_='article_teaser_body').get_text()
+        # Use the parent element to find the first `a` tag and save it as `news_title`
+        news_title = slide_elem.find('div', class_='content_title').get_text()
+    
+        # Use the parent element to find the paragraph text
+        news_p = slide_elem.find('div', class_='article_teaser_body').get_text()
     
     except AttributeError:
         return None, None
